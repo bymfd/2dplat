@@ -10,10 +10,10 @@ func _on_enemydetector_body_entered(body: PhysicsBody2D)-> void:
 
 func _physics_process(delta: float) -> void :
 	if Input.is_action_just_pressed("jump"):
-		
-		get_node( "botfire" ).visible=1
+		get_node("player/botfire").emitting=true
 	else: 
-		pass
+		get_node("player/botfire").emitting=false
+		
 	if Input.is_action_just_pressed("move_right"):
 		get_node( "player" ).set_flip_h( false )
 	elif Input.is_action_just_pressed("move_left"):
@@ -51,5 +51,3 @@ func calculate_stomp_velocity(linear_velocity: Vector2,impulse:float)-> Vector2:
 		var out := linear_velocity
 		out.y =- impulse
 		return out
-
-
