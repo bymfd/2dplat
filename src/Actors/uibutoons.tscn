@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/arrow.png" type="Texture" id=1]
 [ext_resource path="res://assets/pause.png" type="Texture" id=2]
+[ext_resource path="res://assets/background.png" type="Texture" id=3]
+[ext_resource path="res://src/Actors/uibutoons.gd" type="Script" id=4]
 
-[node name="CanvasLayer2" type="CanvasLayer"]
+[node name="ui" type="Node2D"]
+script = ExtResource( 4 )
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="butonui" type="TextureRect" parent="CanvasLayer2"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,34 +23,63 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="touchleft" type="TouchScreenButton" parent="TextureRect2"]
+[node name="touchleft" type="TouchScreenButton" parent="CanvasLayer2/butonui"]
 light_mask = 0
-position = Vector2( 21.1061, 88.211 )
+position = Vector2( 8.15527, 70.9432 )
 rotation = -1.5708
-scale = Vector2( 1.61399, 1.57065 )
 normal = ExtResource( 1 )
 action = "move_left"
 
-[node name="touchright" type="TouchScreenButton" parent="TextureRect2"]
+[node name="touchright" type="TouchScreenButton" parent="CanvasLayer2/butonui"]
 light_mask = 0
-position = Vector2( 377.097, -72.0799 )
+position = Vector2( 219.529, -26.7518 )
 rotation = 1.5708
-scale = Vector2( 1.58257, 1.70507 )
 normal = ExtResource( 1 )
 action = "move_right"
 
-[node name="touchjump" type="TouchScreenButton" parent="TextureRect2"]
+[node name="touchjump" type="TouchScreenButton" parent="CanvasLayer2/butonui"]
 light_mask = 0
-position = Vector2( 852.738, -48.2674 )
-scale = Vector2( 1.79425, 1.36023 )
+position = Vector2( 891.591, -33.158 )
 normal = ExtResource( 1 )
 action = "jump"
 visibility_mode = 1
 
-[node name="touchpause" type="TouchScreenButton" parent="TextureRect2"]
+[node name="touchpause" type="TouchScreenButton" parent="CanvasLayer2/butonui"]
+pause_mode = 2
 light_mask = 0
 position = Vector2( 455.147, -516.533 )
 scale = Vector2( 0.867599, 0.66331 )
 normal = ExtResource( 2 )
-action = "escape"
+action = "pause"
 visibility_mode = 1
+
+[node name="pause_ui" type="TextureRect" parent="CanvasLayer2"]
+visible = false
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 896.0
+margin_bottom = 480.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resumebut" type="Button" parent="CanvasLayer2/pause_ui"]
+pause_mode = 2
+light_mask = 0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -874.813
+margin_top = 493.437
+margin_right = -762.813
+margin_bottom = 493.437
+rect_rotation = 90.1471
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_mask = 7
+icon = ExtResource( 1 )
+flat = true
+[connection signal="pressed" from="CanvasLayer2/butonui/touchpause" to="." method="_on_touchpause_pressed"]
+[connection signal="pressed" from="CanvasLayer2/pause_ui/resumebut" to="." method="_on_resumebut_pressed"]

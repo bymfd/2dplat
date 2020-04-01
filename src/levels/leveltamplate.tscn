@@ -98,3 +98,5 @@ position = Vector2( 2874.71, -669.433 )
 [node name="uibuttons" parent="." instance=ExtResource( 7 )]
 
 [editable path="player"]
+
+[editable path="uibuttons"]
