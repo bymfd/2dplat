@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="2dplat"
 config/description="2dplat beta"
-run/main_scene="res://src/levels/leveltamplate.tscn"
+run/main_scene="res://src/levels/level1.tscn"
 boot_splash/image="res://assets/background.png"
 config/icon="res://assets/icon.png"
 

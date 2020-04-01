@@ -41,7 +41,6 @@ tile_data = PoolIntArray( -2424825, -1073741824, 0, -2424755, -1073741824, 0, -2
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 269.613, 299.025 )
-gravity = 800.0
 speed = Vector2( 500, 500 )
 
 [node name="Camera2D" parent="player" index="2"]
@@ -98,5 +97,3 @@ position = Vector2( 2874.71, -669.433 )
 [node name="uibuttons" parent="." instance=ExtResource( 7 )]
 
 [editable path="player"]
-
-[editable path="uibuttons"]
