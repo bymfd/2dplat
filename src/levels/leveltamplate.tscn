@@ -93,7 +93,7 @@ attenuation = 20.393
 area_mask = 0
 
 [node name="portal" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2676.07, -724.229 )
+position = Vector2( 2874.71, -669.433 )
 
 [node name="uibuttons" parent="." instance=ExtResource( 7 )]
 
