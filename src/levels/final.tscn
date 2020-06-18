@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/Silver_master.ogg" type="AudioStream" id=3]
+[ext_resource path="res://src/Actors/uibutoons.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actors/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Actors/portal.tscn" type="PackedScene" id=7]
+
+[node name="leveltamplate" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ -963.869 ],
+"_edit_vertical_guides_": [ 3459.43 ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -88.8337
+margin_top = -691.087
+margin_right = 1831.18
+margin_bottom = 388.914
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -1, 7.02258 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 8
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -655359, 0, 0, -655358, -1073741824, 0, 1179640, 0, 0, 1179641, 0, 0, 1179642, 0, 0, 1179643, 0, 0, 1179644, 0, 0, 1179645, 0, 0, 1179646, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1114136, 0, 0, 1114137, 0, 0, 1114138, 0, 0, 1114139, 0, 0, 1114140, 0, 0, 1114141, 0, 0, 1114142, 0, 0, 1114143, 0, 0, 1114144, 0, 0, 1114145, 0, 0, 1114146, 0, 0, 1114147, 0, 0, 1179682, 0, 0, 1179683, 0, 0 )
+
+[node name="player" parent="." instance=ExtResource( 5 )]
+position = Vector2( -89.387, 511.025 )
+
+[node name="botfire" parent="player/player" index="0"]
+position = Vector2( -1.2879, 17.0901 )
+
+[node name="Camera2D" parent="player" index="2"]
+position = Vector2( -0.753601, 9.99088 )
+limit_top = -100000
+limit_right = 3460
+
+[node name="CollisionShape2D" parent="player/enemydetector" index="0"]
+position = Vector2( -14.2651, -41.8126 )
+
+[node name="enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1780.6, 432.948 )
+
+[node name="enemy2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2472.72, -121.893 )
+
+[node name="enemy4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 699.26, 515.138 )
+
+[node name="enemy5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 832.76, 509.827 )
+
+[node name="enemy7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2964.64, -510.853 )
+
+[node name="enemy9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2421.24, -493.693 )
+
+[node name="enemy10" parent="." instance=ExtResource( 6 )]
+position = Vector2( 446, 523.433 )
+
+[node name="enemy6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1905.43, -680.859 )
+
+[node name="enemy8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 990.75, 505.486 )
+
+[node name="enemy3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 577.04, 538.548 )
+
+[node name="enemy11" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2678.67, 358.569 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+max_distance = 20000.0
+attenuation = 20.393
+area_mask = 0
+
+[node name="portal" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1258.71, 478.567 )
+
+[node name="uibuttons" parent="." instance=ExtResource( 4 )]
+
+[editable path="player"]

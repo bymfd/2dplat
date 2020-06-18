@@ -26,7 +26,7 @@ position = Vector2( -1.00233, 16.3628 )
 scale = Vector2( 0.166904, 0.0726139 )
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="playercs2d" type="CollisionShape2D" parent="."]
 position = Vector2( -1.84845, -36.9181 )
 shape = SubResource( 1 )
 
@@ -45,7 +45,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemydetector"]
-position = Vector2( -3.4467, -52.0556 )
+position = Vector2( -4.4467, -53.0556 )
 rotation = 0.00888729
 shape = SubResource( 2 )
 [connection signal="area_entered" from="enemydetector" to="." method="_on_enemydetector_area_entered"]
