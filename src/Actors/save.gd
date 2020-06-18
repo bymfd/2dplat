@@ -1,3 +1,22 @@
 extends Node
 var nedir=false
-var level=0
+var level=null
+var data={"level":"0"}
+var path="user://user.save"
+func _init():
+	var f = File.new()
+	if f.file_exists(path):
+		f.open(path, File.READ)
+		data = f.get_var()
+		f.close()
+		return data
+	else:
+		yaz(0)
+
+func yaz(levelkac):
+	data["level"]=levelkac
+	var f = File.new()
+	f.open(path, File.WRITE)
+	f.store_var(data)
+	f.close()
+	
