@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/arrow.png" type="Texture" id=1]
 [ext_resource path="res://assets/pause.png" type="Texture" id=2]
 [ext_resource path="res://assets/background.png" type="Texture" id=3]
 [ext_resource path="res://src/Actors/uibutoons.gd" type="Script" id=4]
+[ext_resource path="res://assets/re.png" type="Texture" id=5]
 
 [node name="ui" type="Node2D"]
 script = ExtResource( 4 )
@@ -71,15 +72,32 @@ light_mask = 0
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -874.813
-margin_top = 493.437
-margin_right = -762.813
-margin_bottom = 493.437
+margin_left = -839.813
+margin_top = 492.437
+margin_right = -727.813
+margin_bottom = 492.437
 rect_rotation = 90.1471
 mouse_default_cursor_shape = 2
 toggle_mode = true
 button_mask = 7
 icon = ExtResource( 1 )
 flat = true
+
+[node name="musicbutton" type="Button" parent="CanvasLayer2/pause_ui"]
+pause_mode = 2
+light_mask = 0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1869.0
+margin_top = 62.0
+margin_right = -1757.0
+margin_bottom = -912.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_mask = 7
+icon = ExtResource( 5 )
+flat = true
 [connection signal="pressed" from="CanvasLayer2/butonui/touchpause" to="." method="_on_touchpause_pressed"]
 [connection signal="pressed" from="CanvasLayer2/pause_ui/resumebut" to="." method="_on_resumebut_pressed"]
+[connection signal="pressed" from="CanvasLayer2/pause_ui/musicbutton" to="." method="_on_musicbutton_pressed"]

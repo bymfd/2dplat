@@ -27,10 +27,12 @@ _global_script_class_icons={
 [application]
 
 config/name="2dplat"
-config/description="2dplat beta"
-run/main_scene="res://src/levels/level0.tscn"
+config/description="İnsan beyni ve zihni konusunda oldukça başarılı alaylı bir donanım geliştircisi,para kazanmak için oyun geliştirmeye karar verir "
+run/main_scene="res://src/levels/gircikdemo.tscn"
 boot_splash/image="res://assets/background.png"
 config/icon="res://assets/icon.png"
+config/auto_accept_quit=false
+config/quit_on_go_back=false
 
 [autoload]
 

@@ -1,6 +1,7 @@
 extends Node
 var nedir=false
-var level=null
+var level=""
+var music =false
 var data={"level":"0"}
 var path="user://user.save"
 func _init():
@@ -9,14 +10,18 @@ func _init():
 		f.open(path, File.READ)
 		data = f.get_var()
 		f.close()
+		level=data["level"]
 		return data
 	else:
 		yaz(0)
+
+
 
 func yaz(levelkac):
 	data["level"]=levelkac
 	var f = File.new()
 	f.open(path, File.WRITE)
 	f.store_var(data)
+	level=data["level"]
 	f.close()
 	
