@@ -48,7 +48,7 @@ limit_top = -100000
 limit_right = 3460
 
 [node name="CollisionShape2D" parent="player/enemydetector" index="0"]
-position = Vector2( -14.2651, -41.8126 )
+position = Vector2( -5.2651, -48.8126 )
 
 [node name="enemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1780.6, 432.948 )
@@ -91,7 +91,7 @@ attenuation = 20.393
 area_mask = 0
 
 [node name="portal" parent="." instance=ExtResource( 7 )]
-position = Vector2( 349.71, 127.567 )
+position = Vector2( 2934.71, -655.433 )
 
 [node name="uibuttons" parent="." instance=ExtResource( 4 )]
 

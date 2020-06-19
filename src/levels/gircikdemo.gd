@@ -4,6 +4,7 @@ var path="user://user.save"
 
 
 func _ready():
+	
 	if global.nedir:
 		get_node("Button2").visible=true
 	else:
@@ -57,3 +58,8 @@ func _on_CheckButton_toggled(button_pressed):
 func _on_Button3_pressed():
 	get_node("WindowDialog").visible=true
 	
+
+
+func _on_resetlevel_pressed():
+	global.level="0"
+	yaz("0")
