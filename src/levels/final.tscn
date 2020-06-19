@@ -18,13 +18,12 @@ __meta__ = {
 layer = -100
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -88.8337
-margin_top = -691.087
-margin_right = 1831.18
-margin_bottom = 388.914
+margin_left = -801.598
+margin_top = -634.518
+margin_right = 1118.42
+margin_bottom = 445.483
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {

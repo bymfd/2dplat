@@ -34,10 +34,10 @@ light_mask = 0
 anchor_top = 0.167
 anchor_right = 0.957
 anchor_bottom = 0.63
-margin_left = 459.0
-margin_top = 94.8
-margin_right = -348.752
-margin_bottom = -147.0
+margin_left = 498.0
+margin_top = -92.2
+margin_right = -309.752
+margin_bottom = -334.0
 custom_fonts/mono_font = ExtResource( 2 )
 custom_fonts/normal_font = ExtResource( 3 )
 text = "2dplat"
@@ -75,12 +75,15 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="."]
-margin_left = 883.052
-margin_top = 8.084
-margin_right = 995.052
-margin_bottom = 114.084
+margin_left = 915.052
+margin_top = -2.916
+margin_right = 1027.05
+margin_bottom = 103.084
 icon = ExtResource( 8 )
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CheckButton" type="Button" parent="."]
 margin_left = 3.0
@@ -94,10 +97,10 @@ __meta__ = {
 }
 
 [node name="resetlevel" type="Button" parent="."]
-margin_left = 460.0
-margin_top = 28.0
-margin_right = 549.0
-margin_bottom = 119.0
+margin_left = 511.0
+margin_top = 25.0
+margin_right = 600.0
+margin_bottom = 116.0
 toggle_mode = true
 icon = ExtResource( 9 )
 flat = true

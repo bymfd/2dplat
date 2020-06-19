@@ -60,3 +60,6 @@ func flip_h_control():
 		get_node( "player" ).set_flip_h( false )
 	elif Input.is_action_just_pressed("move_left"):
 		get_node( "player" ).set_flip_h( true )
+
+
+
