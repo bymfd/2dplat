@@ -22,7 +22,7 @@ func oku():
 		f.close()
 		return data
 	else:
-		yaz(0)
+		yaz("0")
 
 func yaz(levelkac):
 	data["level"]=levelkac

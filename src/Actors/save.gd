@@ -13,7 +13,7 @@ func _init():
 		level=data["level"]
 		return data
 	else:
-		yaz(0)
+		yaz("0")
 
 
 
