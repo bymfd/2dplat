@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/mfd.png" type="Texture" id=1]
+[ext_resource path="res://src/assets/mfd.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/0016.png" type="Texture" id=3]
+[ext_resource path="res://src/assets/0016.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.9918, 36.8864 )
@@ -11,6 +11,7 @@ extents = Vector2( 14.9918, 36.8864 )
 extents = Vector2( 33.541, 38.1758 )
 
 [node name="player" type="KinematicBody2D"]
+position = Vector2( 522, 331 )
 collision_mask = 8
 script = ExtResource( 2 )
 gravity = 800.0

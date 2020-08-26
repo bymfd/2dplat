@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://assets/arrow.png" type="Texture" id=1]
-[ext_resource path="res://assets/pause.png" type="Texture" id=2]
-[ext_resource path="res://assets/background.png" type="Texture" id=3]
+[ext_resource path="res://src/assets/arrow.png" type="Texture" id=1]
+[ext_resource path="res://src/assets/pause.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/background.png" type="Texture" id=3]
 [ext_resource path="res://src/Actors/uibutoons.gd" type="Script" id=4]
-[ext_resource path="res://assets/re.png" type="Texture" id=5]
+[ext_resource path="res://src/assets/re.png" type="Texture" id=5]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=6]
+[ext_resource path="res://src/assets/font_title.tres" type="DynamicFont" id=7]
+[ext_resource path="res://src/assets/can.png" type="Texture" id=8]
+[ext_resource path="res://src/assets/canp.png" type="Texture" id=9]
 
 [node name="ui" type="Node2D"]
+position = Vector2( 0, 600 )
 script = ExtResource( 4 )
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
@@ -15,44 +20,41 @@ script = ExtResource( 4 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.51752
-margin_top = -76.5176
-margin_right = 2.51758
-margin_bottom = 2.48242
+size_flags_horizontal = 10
+size_flags_vertical = 10
 expand = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="touchleft" type="TouchScreenButton" parent="CanvasLayer2/butonui"]
 light_mask = 0
-position = Vector2( 8.15527, 70.9432 )
+position = Vector2( 11.3979, -5.83856 )
 rotation = -1.5708
 normal = ExtResource( 1 )
 action = "move_left"
 
 [node name="touchright" type="TouchScreenButton" parent="CanvasLayer2/butonui"]
 light_mask = 0
-position = Vector2( 219.529, -26.7518 )
+position = Vector2( 226.186, -103.119 )
 rotation = 1.5708
 normal = ExtResource( 1 )
 action = "move_right"
 
-[node name="touchjump" type="TouchScreenButton" parent="CanvasLayer2/butonui"]
+[node name="jumptut" type="TextureRect" parent="CanvasLayer2/butonui"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="touchjump" type="TouchScreenButton" parent="CanvasLayer2/butonui/jumptut"]
 light_mask = 0
-position = Vector2( 891.591, -33.158 )
+position = Vector2( -136, -112 )
 normal = ExtResource( 1 )
 action = "jump"
-visibility_mode = 1
-
-[node name="touchpause" type="TouchScreenButton" parent="CanvasLayer2/butonui"]
-pause_mode = 2
-light_mask = 0
-position = Vector2( 455.147, -516.533 )
-scale = Vector2( 0.867599, 0.66331 )
-normal = ExtResource( 2 )
-action = "pause"
-visibility_mode = 1
 
 [node name="pause_ui" type="TextureRect" parent="CanvasLayer2"]
 visible = false
@@ -61,7 +63,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 896.0
 margin_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 3 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,35 +74,103 @@ __meta__ = {
 [node name="resumebut" type="Button" parent="CanvasLayer2/pause_ui"]
 pause_mode = 2
 light_mask = 0
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -839.813
-margin_top = 492.437
-margin_right = -727.813
-margin_bottom = 492.437
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 120.0
+margin_top = -60.0
+margin_right = 232.0
+margin_bottom = 1020.0
 rect_rotation = 90.1471
 mouse_default_cursor_shape = 2
 toggle_mode = true
+shortcut_in_tooltip = false
 button_mask = 7
 icon = ExtResource( 1 )
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="musicbutton" type="Button" parent="CanvasLayer2/pause_ui"]
 pause_mode = 2
 light_mask = 0
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -1869.0
-margin_top = 62.0
-margin_right = -1757.0
-margin_bottom = -912.0
+anchor_right = 0.076
+anchor_bottom = 0.124
+margin_left = 33.0405
+margin_top = 28.3261
+margin_right = -0.879486
+margin_bottom = 0.406097
 mouse_default_cursor_shape = 2
 toggle_mode = true
 button_mask = 7
 icon = ExtResource( 5 )
 flat = true
-[connection signal="pressed" from="CanvasLayer2/butonui/touchpause" to="." method="_on_touchpause_pressed"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upui" type="TextureRect" parent="CanvasLayer2"]
+anchor_left = 0.5
+anchor_right = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="touchpause" type="TouchScreenButton" parent="CanvasLayer2/upui"]
+pause_mode = 2
+light_mask = 0
+position = Vector2( -48, 16 )
+scale = Vector2( 0.867599, 0.66331 )
+normal = ExtResource( 2 )
+action = "pause"
+
+[node name="canimg" type="TextureRect" parent="CanvasLayer2/upui"]
+margin_left = 88.0
+margin_right = 188.0
+margin_bottom = 100.0
+texture = ExtResource( 8 )
+
+[node name="cantxt" type="RichTextLabel" parent="CanvasLayer2/upui"]
+margin_left = 184.0
+margin_top = 16.0
+margin_right = 248.0
+margin_bottom = 80.0
+custom_fonts/normal_font = ExtResource( 7 )
+text = "1"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer2/upui"]
+pause_mode = 2
+visible = false
+margin_left = 80.0
+margin_top = -8.0
+margin_right = 192.0
+margin_bottom = 104.0
+icon = ExtResource( 9 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AdMob" type="Node" parent="."]
+pause_mode = 2
+script = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 [connection signal="pressed" from="CanvasLayer2/pause_ui/resumebut" to="." method="_on_resumebut_pressed"]
 [connection signal="pressed" from="CanvasLayer2/pause_ui/musicbutton" to="." method="_on_musicbutton_pressed"]
+[connection signal="pressed" from="CanvasLayer2/upui/touchpause" to="." method="_on_touchpause_pressed"]
+[connection signal="pressed" from="CanvasLayer2/upui/Button" to="." method="_on_Button_pressed"]
+[connection signal="rewarded" from="AdMob" to="." method="_on_AdMob_rewarded"]
+[connection signal="rewarded_video_closed" from="AdMob" to="." method="_on_AdMob_rewarded_video_closed"]
+[connection signal="rewarded_video_left_application" from="AdMob" to="." method="_on_AdMob_rewarded_video_left_application"]
+[connection signal="rewarded_video_loaded" from="AdMob" to="." method="_on_AdMob_rewarded_video_loaded"]
+[connection signal="rewarded_video_opened" from="AdMob" to="." method="_on_AdMob_rewarded_video_opened"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

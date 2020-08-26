@@ -1,19 +1,25 @@
 extends Actor
 export var stomp_impulse := 1000.0
 func _on_enemydetector_area_entered(area: Area2D)-> void:
-	print_debug(area.name)
 	_velocity = calculate_stomp_velocity(_velocity,stomp_impulse)
 
-
 func _on_enemydetector_body_entered(body: PhysicsBody2D)-> void:
-	queue_free()
 	#print_debug(body.name)
 	if body.name=="portal":
-		global.nedir=true
+		queue_free()
+		global.portal(true)
 		get_tree().change_scene("res://src/levels/gircikdemo.tscn")
 	else:
-		global.nedir=false
+		olum()
+
+func olum():
+	global.candegis(false)
+	if global.can<1:
+		queue_free()
+		global.portal(false)
 		get_tree().change_scene("res://src/levels/gircikdemo.tscn")
+
+
 
 func _physics_process(delta: float) -> void :
 	flip_h_control()
@@ -40,7 +46,7 @@ func calculate_move_velocity(
 	if direction.y == -1.0:
 	
 		out.y= speed.y * direction.y
-		
+
 	if is_jump_interrupt:
 		out.y= 0.0
 	return out
@@ -60,6 +66,3 @@ func flip_h_control():
 		get_node( "player" ).set_flip_h( false )
 	elif Input.is_action_just_pressed("move_left"):
 		get_node( "player" ).set_flip_h( true )
-
-
-

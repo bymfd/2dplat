@@ -1,12 +1,10 @@
 extends Node2D
+onready var Admoba=get_node("AdMob")
 
-func ses():
-	if global.music:
-		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
-		print_debug(global.music)
-	else:
-		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
-		print_debug(global.music)
+func _ready():
+	Admoba.load_rewarded_video()
+	kontrol()
+
 
 func _on_touchpause_pressed():
 		get_tree().paused = true
@@ -19,6 +17,39 @@ func _on_resumebut_pressed():
 
 
 func _on_musicbutton_pressed():
-	print_debug("asdasdasdad")
-	ses()
-	global.music=!global.music
+	global.music()
+
+func kontrol():
+	get_node("CanvasLayer2/upui/cantxt").text=str(global.can)
+
+func _on_Timer_timeout():
+	kontrol()
+
+
+func _on_AdMob_rewarded_video_loaded():
+	get_node("CanvasLayer2/upui/Button").visible=true
+
+
+func _on_Button_pressed():
+	Admoba.show_rewarded_video()
+
+
+func _on_AdMob_rewarded_video_left_application():
+	get_tree().paused = false
+	get_node("CanvasLayer2/upui/Button").visible=false
+	
+
+
+func _on_AdMob_rewarded(currency, ammount):
+	global.candegis(true)
+	get_tree().paused = false
+	get_node("CanvasLayer2/upui/Button").visible=false
+
+
+func _on_AdMob_rewarded_video_opened():
+	get_tree().paused = true
+	get_node("CanvasLayer2/upui/Button").visible=false
+
+
+func _on_AdMob_rewarded_video_closed():
+	get_tree().paused = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Actors/enemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/enemy.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/enemy.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/0016.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 52.6622, 38.5479 )
@@ -38,4 +39,22 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stompdetector"]
 position = Vector2( -0.802353, -74.9381 )
 shape = SubResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+light_mask = 0
+position = Vector2( 34, -47 )
+rotation = -1.59192
+scale = Vector2( 0.679554, 0.392009 )
+amount = 5
+texture = ExtResource( 3 )
+color = Color( 0.945098, 0.866667, 0.0509804, 1 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+light_mask = 0
+position = Vector2( -35, -53 )
+rotation = 1.51179
+scale = Vector2( 0.679554, 0.392009 )
+amount = 5
+texture = ExtResource( 3 )
+color = Color( 0.945098, 0.866667, 0.0509804, 1 )
 [connection signal="body_entered" from="stompdetector" to="." method="_on_stompdetector_body_entered"]
